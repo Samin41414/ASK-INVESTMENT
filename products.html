@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products – ASK INVESTMENT</title>
+<meta name="description" content="Browse ASK Investment products by category.">
+<link rel="icon" href="company%20logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Newsreader:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <nav class="nav-l" aria-label="Main">
+      <a href="index.html#about">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="index.html" class="brand" aria-label="ASK INVESTMENT home">
+      <img src="company%20logo.jpg" alt="">
+      <b>ASK INVESTMENT</b>
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="block products">
+    <div class="wrap">
+      <h2>Products</h2>
+      <p class="sub">Choose a category to see the products in it.</p>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr"></span> ASK Investment</span>
+    <span>Architects of Strategic Growth</span>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+const grid=document.getElementById('grid');
+CATEGORIES.forEach(cat=>{
+  const c=document.createElement('a'); c.className='card'; c.href='category.html?c='+encodeURIComponent(cat.id);
+  const s=document.createElement('small'); s.textContent=cat.tag||'';
+  const h=document.createElement('h3'); h.textContent=cat.name;
+  const p=document.createElement('p'); p.textContent=cat.text;
+  const g=document.createElement('span'); g.className='go'; g.textContent='View products';
+  c.append(s,h,p,g); grid.appendChild(c);
+});
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
